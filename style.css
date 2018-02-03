@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  background:
+  /* top, transparent red, faked with gradient */
+    linear-gradient(to right,
+      rgba(37,42,57,1),
+      rgba(37,42,57,0.9),
+      /* rgba(37,42,57,0.7), */
+      rgba(37,42,57,0.4)),
+  /* bottom, image */
+    url(rugby-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.content {
+  margin: 60px;
+  font-family: Avenir-Heavy;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.text-area {
+  width: 55%;
+}
+
+.text-area p {
+  margin-bottom: 30px;
+}
+
+
+
+
+/* form starting stylings ------------------------------- */
+
+.input-area {
+  margin-top: 80px;
+  font-family: Avenir-Heavy;
+  font-size: 24px;
+}
+
+.group 			  {
+  display: inline-block;
+  position:relative;
+  margin-bottom:45px;
+  width: 50%;
+}
+input 				{
+  font-size:24px;
+  padding:10px 10px 10px 5px;
+  display:inline;
+  width:100%;
+  border:none;
+  border-bottom:1px solid rgba(255,255,255,0.6);
+  background: rgba(0, 0, 0, 0);
+  color: #FFFFFF;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color: rgba(255,255,255,0.6);
+  font-size:24px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#FFFFFF;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:100%; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#FFFFFF;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#FFFFFF; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#FFFFFF; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#FFFFFF; }
+  to 	{ width:0; background:transparent; }
+}
+
+button {
+  display: inline;
+  margin-left: 60px;
+  font-family: Avenir-Heavy;
+  font-size: 24px;
+  padding:10px 10px 10px 5px;
+  color: #FFFFFF;
+  width: 300px;
+  /* height: 90px; */
+  background: #FF3A6C;
+  border: none;
+  outline: none;
+}
+
+@media all and (max-width: 768px) {
+  .text-area {
+    width: 100%;
+  }
+
+  .group 			  {
+    display: block;
+    position:relative;
+    margin-bottom:45px;
+    width: 100%;
+  }
+
+  button {
+    display: block;
+    margin-left: 0px;
+    font-family: Avenir-Heavy;
+    font-size: 24px;
+    padding:10px 10px 10px 5px;
+    color: #FFFFFF;
+    width: 100%;
+    /* height: 90px; */
+    background: #FF3A6C;
+    border: none;
+    outline: none;
+  }
+}
